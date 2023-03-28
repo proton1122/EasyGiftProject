@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+ 
+{% block main %}
+ 
+{% include 'snippets/headline.html' %}
+ 
+<div class="container px-5" style="max-width:100%">
+
+    <h1>送付先情報確認画面</h1>
+
+    下記内容にお間違い無ければ、送信ボタンを押してください。
+    <br>こちらの画面で編集も可能です。</br>
+    
+    <form action="/customer/complete/" method="post">
+        {% csrf_token %}
+        <br> {{ form.as_p }}</br>
+        <button type="submit" name="submit">送信</button>
+    </form>
+
+</div>
+{% endblock %}

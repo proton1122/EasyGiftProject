@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+ 
+{% block main %}
+ 
+{% include 'snippets/headline.html' %}
+ 
+<div class="container px-5" style="max-width:100%">
+<h1>お受取りの商品情報はこちら</h1><br>
+商品名 : {{order.name}}<br>
+<img src="/{{order.image}}" width="50%" height="50%">
+<br>
+オーダーID : {{order.id}}<br>
+ユーザー名 : {{order.user}}<br>
+<br>
+<br>
+
+<h2>以下送付先情報をご記入の上、確認ボタンを押してください。</h2>
+<br>
+<form class="" action="/customer/confirm/" method="post" enctype="multipart/form-data">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button type="submit" name="submit">確認</button>       
+</form>
+
+</div>
+{% endblock %}
